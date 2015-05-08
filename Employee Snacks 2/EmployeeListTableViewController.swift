@@ -10,6 +10,8 @@ import UIKit
 
 var employees = ["Shartel", "Mike", "Fat People"]
 
+var activeEmployee = -1
+
 class EmployeeListTableViewController: UITableViewController {
 
     
@@ -61,6 +63,12 @@ class EmployeeListTableViewController: UITableViewController {
         cell.textLabel?.text = employees[indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        activeEmployee = indexPath.row
+        
+        return indexPath
     }
     
 
