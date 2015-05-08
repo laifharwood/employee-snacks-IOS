@@ -16,6 +16,8 @@
 		EEEF967B1AFD17910050A227 /* Employee_Snacks_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF967A1AFD17910050A227 /* Employee_Snacks_2Tests.swift */; };
 		EEEF96851AFD19590050A227 /* EmployeeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96841AFD19590050A227 /* EmployeeListTableViewController.swift */; };
 		EEEF96871AFD24850050A227 /* AddEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */; };
+		EEEF96891AFD68280050A227 /* AdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96881AFD68280050A227 /* AdminTableViewController.swift */; };
+		EEEF968B1AFD68720050A227 /* PeriodListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		EEEF967A1AFD17910050A227 /* Employee_Snacks_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee_Snacks_2Tests.swift; sourceTree = "<group>"; };
 		EEEF96841AFD19590050A227 /* EmployeeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeListTableViewController.swift; sourceTree = "<group>"; };
 		EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmployeeViewController.swift; sourceTree = "<group>"; };
+		EEEF96881AFD68280050A227 /* AdminTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminTableViewController.swift; sourceTree = "<group>"; };
+		EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				EEEF96611AFD17910050A227 /* AppDelegate.swift */,
 				EEEF96661AFD17910050A227 /* ViewController.swift */,
 				EEEF96681AFD17910050A227 /* Main.storyboard */,
+				EEEF96881AFD68280050A227 /* AdminTableViewController.swift */,
+				EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */,
 				EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */,
 				EEEF96841AFD19590050A227 /* EmployeeListTableViewController.swift */,
 				EEEF966B1AFD17910050A227 /* Images.xcassets */,
@@ -222,10 +228,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEEF96671AFD17910050A227 /* ViewController.swift in Sources */,
+				EEEF96891AFD68280050A227 /* AdminTableViewController.swift in Sources */,
 				EEEF96621AFD17910050A227 /* AppDelegate.swift in Sources */,
 				EEEF96651AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld in Sources */,
 				EEEF96851AFD19590050A227 /* EmployeeListTableViewController.swift in Sources */,
 				EEEF96871AFD24850050A227 /* AddEmployeeViewController.swift in Sources */,
+				EEEF968B1AFD68720050A227 /* PeriodListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +431,7 @@
 				EEEF96801AFD17910050A227 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EEEF96811AFD17910050A227 /* Build configuration list for PBXNativeTarget "Employee Snacks 2Tests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +440,7 @@
 				EEEF96831AFD17910050A227 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

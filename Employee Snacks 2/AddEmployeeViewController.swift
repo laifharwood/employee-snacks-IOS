@@ -14,8 +14,9 @@ class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
         
         
         employees.append(self.addEmployeeTextField.text)
+        periodTotals.append(0)
         
-        println(employees)
+        //println(employees)
         
         
     }
