@@ -8,10 +8,24 @@
 
 import UIKit
 
-class AddEmployeeViewController: UIViewController {
+class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
 
+    @IBAction func addEmployee(sender: AnyObject) {
+        
+        
+        employees.append(self.addEmployeeTextField.text)
+        
+        println(employees)
+        
+        
+    }
+    @IBOutlet weak var addEmployeeTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addEmployeeTextField.delegate = self
+        
+        addEmployeeTextField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
@@ -19,6 +33,15 @@ class AddEmployeeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        return true
     }
     
 

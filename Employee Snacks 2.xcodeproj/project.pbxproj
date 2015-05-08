@@ -14,6 +14,8 @@
 		EEEF966C1AFD17910050A227 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEEF966B1AFD17910050A227 /* Images.xcassets */; };
 		EEEF966F1AFD17910050A227 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEF966D1AFD17910050A227 /* LaunchScreen.xib */; };
 		EEEF967B1AFD17910050A227 /* Employee_Snacks_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF967A1AFD17910050A227 /* Employee_Snacks_2Tests.swift */; };
+		EEEF96851AFD19590050A227 /* EmployeeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96841AFD19590050A227 /* EmployeeListTableViewController.swift */; };
+		EEEF96871AFD24850050A227 /* AddEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		EEEF96741AFD17910050A227 /* Employee Snacks 2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Employee Snacks 2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEEF96791AFD17910050A227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEEF967A1AFD17910050A227 /* Employee_Snacks_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee_Snacks_2Tests.swift; sourceTree = "<group>"; };
+		EEEF96841AFD19590050A227 /* EmployeeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeListTableViewController.swift; sourceTree = "<group>"; };
+		EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmployeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				EEEF96611AFD17910050A227 /* AppDelegate.swift */,
 				EEEF96661AFD17910050A227 /* ViewController.swift */,
 				EEEF96681AFD17910050A227 /* Main.storyboard */,
+				EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */,
+				EEEF96841AFD19590050A227 /* EmployeeListTableViewController.swift */,
 				EEEF966B1AFD17910050A227 /* Images.xcassets */,
 				EEEF966D1AFD17910050A227 /* LaunchScreen.xib */,
 				EEEF96631AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld */,
@@ -218,6 +224,8 @@
 				EEEF96671AFD17910050A227 /* ViewController.swift in Sources */,
 				EEEF96621AFD17910050A227 /* AppDelegate.swift in Sources */,
 				EEEF96651AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld in Sources */,
+				EEEF96851AFD19590050A227 /* EmployeeListTableViewController.swift in Sources */,
+				EEEF96871AFD24850050A227 /* AddEmployeeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
