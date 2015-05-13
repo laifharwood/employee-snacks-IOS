@@ -8,6 +8,16 @@
 
 import UIKit
 
+var charges = [Double]()
+var chargeDates = [NSDate]()
+var periodCharges = [Double]()
+var employeeDict = Dictionary<String, Array<Int>>()
+var periodEmployeeDict = Dictionary<String, Array<Int>>()
+var employees = [String]()
+var activeEmployee = -1
+var referenceDate = NSDate()
+var periodStartDates = [NSDate]()
+var periodEndDates = [NSDate]()
 
 
 class ViewController: UIViewController, UITextFieldDelegate {
@@ -24,15 +34,100 @@ class ViewController: UIViewController, UITextFieldDelegate {
             println("error")
         } else{
             
-          //println("\(periodTotals[0])")
-        
-        periodTotals[activeEmployee] =  periodTotals[activeEmployee] + doubleCharge
+        charges.append(doubleCharge)
+        periodCharges.append(doubleCharge)
             
-        periodTotalLabel.text = "\(periodTotals[activeEmployee])"
+        let dateNow = NSDate()
+            
+        chargeDates.append(dateNow)
+            
+        var index:Int
+        var periodIndex:Int
+            
+        index = charges.count - 1
+        periodIndex = periodCharges.count - 1
+            
+        
+            
+        employeeDict["\(employees[activeEmployee])"]?.append(index)
+        periodEmployeeDict["\(employees[activeEmployee])"]!.append(periodIndex)
+            
+            
+        findPeriodTotal()
             
         addChargeTextField.text = ""
             
-        //println("Employee \(employees[activeEmployee]) total period value is \(periodTotals[activeEmployee]) ")
+        /*
+            
+        let flags: NSCalendarUnit = NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear
+        
+        let startComponents = NSDateComponents()
+            
+        let nowComponents = NSCalendar.currentCalendar().components(flags, fromDate: dateNow)
+            
+        let nowDay = nowComponents.day
+        let nowMonth = nowComponents.month
+        let nowYear = nowComponents.year
+        
+        
+            
+            if nowDay >= 1 && nowDay < 16{
+                
+                startComponents.day = 1
+                startComponents.month = nowComponents.month
+                startComponents.year = nowComponents.year
+                startComponents.hour = 0
+                startComponents.minute = 0
+                startComponents.second = 0
+                
+            }else{
+                
+                startComponents.day = 16
+                startComponents.month = nowComponents.month
+                startComponents.year = nowComponents.year
+                startComponents.hour = 0
+                startComponents.minute = 0
+                startComponents.second = 0
+                
+            }
+            
+        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+        let startTime = calendar!.dateFromComponents(startComponents)
+            
+        
+            
+        var tempIndexArray = [Int]()
+        
+            
+        
+        for dates in chargeDates{
+                
+            if(dates.isGreaterThanDate(startTime!))
+            {
+                
+                var x = find(chargeDates, dates)
+                tempIndexArray.append(x!)
+                
+                
+            }
+            
+                
+        }
+
+            
+            for indexes in tempIndexArray{
+                
+                if contains(activeEmployeeIndexes, indexes){
+            
+            
+                }
+            }
+            
+        
+          */
+        
+            
+        
             
         }
         
@@ -45,6 +140,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         addChargeTextField.becomeFirstResponder()
         
+        findPeriodTotal()
+        
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -56,7 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.title = employees[activeEmployee]
-        periodTotalLabel.text = "\(periodTotals[activeEmployee])"
+        //periodTotalLabel.text = "\(periodTotals[activeEmployee])"
         
         
     }
@@ -69,7 +166,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-
+    
+    func findPeriodTotal(){
+        
+        var activeEmployeeIndexes = [Int]()
+        
+        activeEmployeeIndexes = periodEmployeeDict["\(employees[activeEmployee])"]!
+        
+        var periodTotal = 0.0
+        
+        for indexes in activeEmployeeIndexes{
+            
+            periodTotal = periodTotal + periodCharges[indexes]
+        }
+        
+        periodTotalLabel.text = "\(periodTotal)"
+        
+        
+    }
+    
+    
 
 }
 

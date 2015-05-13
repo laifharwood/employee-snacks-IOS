@@ -8,16 +8,6 @@
 
 import UIKit
 
-//var employees = [String]()
-
-var employees = ["Shartel", "Mike"]
-
-//var periodTotals = [Double]()
-
-var periodTotals = [0.0, 0.0]
-
-var activeEmployee = -1
-
 class EmployeeListTableViewController: UITableViewController {
 
     
@@ -57,7 +47,7 @@ class EmployeeListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return employees.count
+        return employeeDict.count
     }
 
     

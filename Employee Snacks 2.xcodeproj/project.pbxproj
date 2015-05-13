@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE53A3D61AFD75990079B0EC /* PeriodDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53A3D51AFD75990079B0EC /* PeriodDetailTableViewController.swift */; };
+		EE53A3D81AFD7E840079B0EC /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53A3D71AFD7E840079B0EC /* CustomCell.swift */; };
 		EEEF96621AFD17910050A227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96611AFD17910050A227 /* AppDelegate.swift */; };
 		EEEF96651AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96631AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld */; };
 		EEEF96671AFD17910050A227 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96661AFD17910050A227 /* ViewController.swift */; };
@@ -18,6 +20,7 @@
 		EEEF96871AFD24850050A227 /* AddEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */; };
 		EEEF96891AFD68280050A227 /* AdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96881AFD68280050A227 /* AdminTableViewController.swift */; };
 		EEEF968B1AFD68720050A227 /* PeriodListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */; };
+		EEEFBA7A1B0174AC00F72F17 /* SharedSwiftCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEFBA791B0174AC00F72F17 /* SharedSwiftCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE53A3D51AFD75990079B0EC /* PeriodDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodDetailTableViewController.swift; path = "Employee Snacks 2.xcodeproj/../PeriodDetailTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		EE53A3D71AFD7E840079B0EC /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		EEEF965C1AFD17910050A227 /* Employee Snacks 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employee Snacks 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEEF96601AFD17910050A227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEEF96611AFD17910050A227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +51,7 @@
 		EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmployeeViewController.swift; sourceTree = "<group>"; };
 		EEEF96881AFD68280050A227 /* AdminTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminTableViewController.swift; sourceTree = "<group>"; };
 		EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodListTableViewController.swift; sourceTree = "<group>"; };
+		EEEFBA791B0174AC00F72F17 /* SharedSwiftCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedSwiftCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +95,11 @@
 			children = (
 				EEEF96611AFD17910050A227 /* AppDelegate.swift */,
 				EEEF96661AFD17910050A227 /* ViewController.swift */,
+				EEEFBA791B0174AC00F72F17 /* SharedSwiftCode.swift */,
 				EEEF96681AFD17910050A227 /* Main.storyboard */,
+				EE53A3D71AFD7E840079B0EC /* CustomCell.swift */,
 				EEEF96881AFD68280050A227 /* AdminTableViewController.swift */,
+				EE53A3D51AFD75990079B0EC /* PeriodDetailTableViewController.swift */,
 				EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */,
 				EEEF96861AFD24850050A227 /* AddEmployeeViewController.swift */,
 				EEEF96841AFD19590050A227 /* EmployeeListTableViewController.swift */,
@@ -176,6 +185,11 @@
 				TargetAttributes = {
 					EEEF965B1AFD17910050A227 = {
 						CreatedOnToolsVersion = 6.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					EEEF96731AFD17910050A227 = {
 						CreatedOnToolsVersion = 6.3;
@@ -228,10 +242,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEEF96671AFD17910050A227 /* ViewController.swift in Sources */,
+				EEEFBA7A1B0174AC00F72F17 /* SharedSwiftCode.swift in Sources */,
 				EEEF96891AFD68280050A227 /* AdminTableViewController.swift in Sources */,
 				EEEF96621AFD17910050A227 /* AppDelegate.swift in Sources */,
 				EEEF96651AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld in Sources */,
+				EE53A3D81AFD7E840079B0EC /* CustomCell.swift in Sources */,
 				EEEF96851AFD19590050A227 /* EmployeeListTableViewController.swift in Sources */,
+				EE53A3D61AFD75990079B0EC /* PeriodDetailTableViewController.swift in Sources */,
 				EEEF96871AFD24850050A227 /* AddEmployeeViewController.swift in Sources */,
 				EEEF968B1AFD68720050A227 /* PeriodListTableViewController.swift in Sources */,
 			);

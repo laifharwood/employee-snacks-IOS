@@ -13,10 +13,17 @@ class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addEmployee(sender: AnyObject) {
         
         
-        employees.append(self.addEmployeeTextField.text)
-        periodTotals.append(0)
+        var employeeString = addEmployeeTextField.text
         
+        employees.append("\(employeeString)")
+        
+        employeeDict["\(employeeString)"] = []
+        periodEmployeeDict["\(employeeString)"] = []
+        //periodTotals.append(0)
+        //println(employeeDict)
         //println(employees)
+        
+        addEmployeeTextField.text = ""
         
         
     }

@@ -9,7 +9,12 @@
 import UIKit
 import CoreData
 
+var test = 1
+
 @UIApplicationMain
+
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -17,7 +22,196 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
+        if firstLaunch  {
+           //println("Not first launch.")
+       }
+        else {
+            //println("First launch, setting NSUserDefault.")
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+            
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
+            
+        
+        let nowDate = NSDate()
+        
+        
+        
+        let flags: NSCalendarUnit = NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear
+        
+        let referenceComponents = NSDateComponents()
+        let firstNotificationComponents = NSDateComponents()
+        let sixteenNotificationComponents = NSDateComponents()
+        let referenceEndComponents = NSDateComponents()
+        
+        
+        let nowComponents = NSCalendar.currentCalendar().components(flags, fromDate: nowDate)
+        
+        let nowDay = nowComponents.day
+        let nowMonth = nowComponents.month
+        let nowYear = nowComponents.year
+        
+        
+        
+        if nowDay >= 1 && nowDay < 16{
+            
+            referenceComponents.day = 1
+            referenceComponents.month = nowComponents.month
+            referenceComponents.year = nowComponents.year
+            referenceComponents.hour = 0
+            referenceComponents.minute = 1
+            referenceComponents.second = 0
+            referenceComponents.timeZone = NSTimeZone.localTimeZone()
+            
+            sixteenNotificationComponents.day = 16
+            sixteenNotificationComponents.month = nowComponents.month
+            sixteenNotificationComponents.year = nowComponents.year
+            sixteenNotificationComponents.hour = 0
+            sixteenNotificationComponents.minute = 2
+            sixteenNotificationComponents.second = 0
+            sixteenNotificationComponents.timeZone = NSTimeZone.localTimeZone()
+            
+            firstNotificationComponents.day = 1
+            if nowMonth == 12{
+                firstNotificationComponents.month = 1
+            }else{
+            firstNotificationComponents.month = nowComponents.month + 1
+            }
+            if nowComponents.month == 12{
+                firstNotificationComponents.year = nowComponents.year + 1
+            }else{
+                firstNotificationComponents.year = nowComponents.year
+            }
+            firstNotificationComponents.hour = 0
+            firstNotificationComponents.minute = 2
+            firstNotificationComponents.second = 0
+            firstNotificationComponents.timeZone = NSTimeZone.localTimeZone()
+            
+            
+            
+        }else{
+            
+            referenceComponents.day = 16
+            referenceComponents.month = nowComponents.month
+            referenceComponents.year = nowComponents.year
+            referenceComponents.hour = 0
+            referenceComponents.minute = 1
+            referenceComponents.second = 0
+            referenceComponents.timeZone = NSTimeZone.localTimeZone()
+            
+            firstNotificationComponents.day = 1
+            if nowMonth == 12{
+            firstNotificationComponents.month = 1
+            }else{
+            firstNotificationComponents.month = nowComponents.month + 1
+            }
+            if nowComponents.month == 12{
+            firstNotificationComponents.year = nowComponents.year + 1
+            }else{
+            firstNotificationComponents.year = nowComponents.year
+            }
+            firstNotificationComponents.hour = 0
+            firstNotificationComponents.minute = 2
+            firstNotificationComponents.second = 0
+            firstNotificationComponents.timeZone = NSTimeZone.localTimeZone()
+            
+            sixteenNotificationComponents.day = 16
+            if nowMonth == 12{
+            sixteenNotificationComponents.month = 1
+            sixteenNotificationComponents.year = nowComponents.year + 1
+            }else{
+            sixteenNotificationComponents.month = nowComponents.month + 1
+            sixteenNotificationComponents.year = nowYear
+            }
+            sixteenNotificationComponents.hour = 0
+            sixteenNotificationComponents.minute = 2
+            sixteenNotificationComponents.second = 0
+            sixteenNotificationComponents.timeZone = NSTimeZone.localTimeZone()
+            
+        }
+        
+        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+        referenceDate = calendar!.dateFromComponents(referenceComponents)!
+        let firstNotificationDate = calendar!.dateFromComponents(firstNotificationComponents)!
+        let sixteenNotificationDate = calendar!.dateFromComponents(sixteenNotificationComponents)!
+            
+        periodStartDates.append(referenceDate)
+            
+            if referenceComponents.day == 1{
+               
+                referenceEndComponents.day = 16
+                referenceEndComponents.month = referenceComponents.month
+                referenceEndComponents.year = referenceComponents.year
+                referenceEndComponents.hour = 0
+                referenceEndComponents.minute = 0
+                referenceEndComponents.second = 0
+                referenceEndComponents.timeZone = NSTimeZone.localTimeZone()
+                
+            }else{
+                referenceEndComponents.day = 1
+                if referenceComponents.month == 12{
+                referenceEndComponents.month = 1
+                referenceEndComponents.year = referenceComponents.year + 1
+                }else{
+                referenceEndComponents.month = referenceComponents.month + 1
+                referenceEndComponents.year = referenceComponents.year
+                }
+                referenceEndComponents.hour = 0
+                referenceEndComponents.minute = 0
+                referenceEndComponents.second = 0
+                referenceEndComponents.timeZone = NSTimeZone.localTimeZone()
+                
+            }
+            
+            let referenceEndDate = calendar!.dateFromComponents(referenceEndComponents)!
+            
+            periodEndDates.append(referenceEndDate)
+            
+            
+            
+            
+            var localNotificationFirst:UILocalNotification = UILocalNotification()
+            localNotificationFirst.alertAction = "Okay"
+            localNotificationFirst.alertBody = "Period data needs to be emailed"
+            localNotificationFirst.fireDate = firstNotificationDate
+            localNotificationFirst.repeatInterval = NSCalendarUnit.CalendarUnitMonth
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotificationFirst)
+            
+            var localNotificationSixteen:UILocalNotification = UILocalNotification()
+            localNotificationSixteen.alertAction = "Okay"
+            localNotificationSixteen.alertBody = "Period data needs to be emailed"
+            localNotificationSixteen.fireDate = sixteenNotificationDate
+            localNotificationFirst.repeatInterval = NSCalendarUnit.CalendarUnitMonth
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotificationSixteen)
+            
+            println("Reference Date is \(referenceDate)")
+            println("Reference End Date is \(referenceEndDate)")
+            println("First Notification Date is \(firstNotificationDate)")
+            println("Sixteen Notification Date is \(sixteenNotificationDate)")
+        
+       }
+        
+        
+        
+        
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        
+       periodCharges = []
+       
+        for (key, value) in periodEmployeeDict{
+            
+            periodEmployeeDict["key"] = []
+            
+        }
+        
+        test = 0
+        
+        println("The value of test is \(test)")
     }
 
     func applicationWillResignActive(application: UIApplication) {
