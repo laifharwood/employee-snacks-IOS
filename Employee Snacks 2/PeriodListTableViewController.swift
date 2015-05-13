@@ -41,15 +41,25 @@ class PeriodListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 1
+        return periodEndDates.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("periodCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("periodCell", forIndexPath: indexPath) as! CustomCell
 
         // Configure the cell...
         
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        //formatter.timeStyle = .MediumStyle
+        
+        //let periodStartDateString = formatter.stringFromDate(periodStartDates[indexPath.row])
+        //let periodEndDateString = formatter.stringFromDate(periodEndDates[indexPath.row])
+        
+        cell.periodStartDateLabel.text = formatter.stringFromDate(periodStartDates[indexPath.row])
+        
+        cell.periodEndDateLabel.text = formatter.stringFromDate(periodEndDates[indexPath.row])
         
         
         //cell.textLabel?.text = "\(periods)"

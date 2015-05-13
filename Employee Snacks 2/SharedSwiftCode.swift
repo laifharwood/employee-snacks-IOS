@@ -158,8 +158,8 @@ func checkForNewPeriod(){
                 periodEmployeeDict[key] = []
             }
             
-            println("Start Dates Are \(periodStartDates)")
-            println("End Dates Are \(periodEndDates)")
+            //println("Start Dates Are \(periodStartDates)")
+            //println("End Dates Are \(periodEndDates)")
             
         }
     

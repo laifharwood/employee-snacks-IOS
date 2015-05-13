@@ -132,11 +132,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="periodCell" id="8A1-2X-xGB">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="periodCell" id="8A1-2X-xGB" customClass="CustomCell" customModule="Employee_Snacks_2" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8A1-2X-xGB" id="QRA-9c-h1a">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Period Start Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grJ-fg-Eul">
+                                            <rect key="frame" x="32" y="11" width="196" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tj0-U3-oop">
+                                            <rect key="frame" x="289" y="11" width="23" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Period End Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdC-vE-tIB">
+                                            <rect key="frame" x="373" y="11" width="196" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Tj0-U3-oop" firstAttribute="leading" secondItem="grJ-fg-Eul" secondAttribute="trailing" constant="61" id="0BG-hq-dHj"/>
+                                        <constraint firstAttribute="centerY" secondItem="Tj0-U3-oop" secondAttribute="centerY" id="5aF-f4-SmC"/>
+                                        <constraint firstItem="Tj0-U3-oop" firstAttribute="leading" secondItem="grJ-fg-Eul" secondAttribute="trailing" constant="61" id="7zU-JN-wNU"/>
+                                        <constraint firstAttribute="centerY" secondItem="WdC-vE-tIB" secondAttribute="centerY" id="Vmb-WP-kJS"/>
+                                        <constraint firstAttribute="centerY" secondItem="grJ-fg-Eul" secondAttribute="centerY" id="XvB-jy-ezr"/>
+                                        <constraint firstItem="WdC-vE-tIB" firstAttribute="leading" secondItem="Tj0-U3-oop" secondAttribute="trailing" constant="61" id="Zjq-w9-gXY"/>
+                                        <constraint firstAttribute="centerX" secondItem="Tj0-U3-oop" secondAttribute="centerX" id="aUW-Me-vGV"/>
+                                        <constraint firstItem="WdC-vE-tIB" firstAttribute="leading" secondItem="Tj0-U3-oop" secondAttribute="trailing" constant="61" id="cgv-f3-20L"/>
+                                        <constraint firstAttribute="centerX" secondItem="Tj0-U3-oop" secondAttribute="centerX" id="d5o-dW-a1H"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Tj0-U3-oop" secondAttribute="bottom" constant="3" id="jmU-o6-Q09"/>
+                                        <constraint firstItem="Tj0-U3-oop" firstAttribute="top" secondItem="QRA-9c-h1a" secondAttribute="topMargin" constant="3" id="yhZ-5E-Qbu"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0BG-hq-dHj"/>
+                                            <exclude reference="d5o-dW-a1H"/>
+                                            <exclude reference="jmU-o6-Q09"/>
+                                            <exclude reference="yhZ-5E-Qbu"/>
+                                            <exclude reference="cgv-f3-20L"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="periodEndDateLabel" destination="WdC-vE-tIB" id="zwK-VA-cug"/>
+                                    <outlet property="periodStartDateLabel" destination="grJ-fg-Eul" id="GXQ-Bj-3Dv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -349,7 +395,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZE-Zg-BRj">
-                                <rect key="frame" x="401" y="321" width="48" height="21"/>
+                                <rect key="frame" x="401" y="321" width="58" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8w3-g4-S8H"/>
                                     <constraint firstAttribute="width" constant="48" id="AGK-GI-IRA"/>
@@ -380,7 +426,9 @@
                             <constraint firstAttribute="centerX" secondItem="CJW-z0-VdR" secondAttribute="centerX" id="Wln-jN-lhB"/>
                             <constraint firstAttribute="centerX" secondItem="oQg-wp-AjJ" secondAttribute="centerX" id="fBZ-Fg-t2E"/>
                             <constraint firstItem="CJW-z0-VdR" firstAttribute="leading" secondItem="jTP-eG-F2M" secondAttribute="leading" constant="-10" id="fCA-8f-BXC"/>
+                            <constraint firstItem="9ZE-Zg-BRj" firstAttribute="leading" secondItem="oQg-wp-AjJ" secondAttribute="trailing" constant="3" id="ht6-LI-NBN"/>
                             <constraint firstItem="00t-ll-AO3" firstAttribute="top" secondItem="CJW-z0-VdR" secondAttribute="bottom" constant="8" id="jII-1w-BcK"/>
+                            <constraint firstItem="9ZE-Zg-BRj" firstAttribute="centerY" secondItem="oQg-wp-AjJ" secondAttribute="centerY" id="jZZ-BB-C14"/>
                             <constraint firstAttribute="centerY" secondItem="oQg-wp-AjJ" secondAttribute="centerY" id="jrL-Qk-CzV"/>
                             <constraint firstAttribute="centerY" secondItem="jTP-eG-F2M" secondAttribute="centerY" id="lz6-pS-fLv"/>
                             <constraint firstAttribute="centerY" secondItem="CJW-z0-VdR" secondAttribute="centerY" id="mHz-ZK-3xj"/>
@@ -402,7 +450,9 @@
                                 <exclude reference="jrL-Qk-CzV"/>
                                 <exclude reference="Nlu-jZ-LMz"/>
                                 <exclude reference="zgL-Ps-nq9"/>
+                                <exclude reference="CK7-QX-o1T"/>
                                 <exclude reference="Mmp-KE-YXd"/>
+                                <exclude reference="Qkl-RK-pSv"/>
                                 <exclude reference="u2d-Rt-t1u"/>
                             </mask>
                         </variation>

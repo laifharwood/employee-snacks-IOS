@@ -10,6 +10,8 @@ import UIKit
 
 class CustomCell: UITableViewCell {
 
+    @IBOutlet weak var periodStartDateLabel: UILabel!
+    @IBOutlet weak var periodEndDateLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     override func awakeFromNib() {
