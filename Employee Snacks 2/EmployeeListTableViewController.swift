@@ -29,6 +29,7 @@ class EmployeeListTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
+        checkForNewPeriod()
     }
 
     override func didReceiveMemoryWarning() {

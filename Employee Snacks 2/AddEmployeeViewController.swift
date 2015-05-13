@@ -31,6 +31,8 @@ class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkForNewPeriod()
+        
         self.addEmployeeTextField.delegate = self
         
         addEmployeeTextField.becomeFirstResponder()

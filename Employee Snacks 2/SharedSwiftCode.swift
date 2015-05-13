@@ -158,7 +158,102 @@ func checkForNewPeriod(){
                 periodEmployeeDict[key] = []
             }
             
+            println("Start Dates Are \(periodStartDates)")
+            println("End Dates Are \(periodEndDates)")
+            
         }
     
     }
 }
+
+func updateCharges(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(charges, forKey: "charges")
+}
+
+func retrieveCharges(){
+    
+   charges = NSUserDefaults.standardUserDefaults().objectForKey("charges")! as! [(Double)]
+}
+
+func updateChargeDates(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(chargeDates, forKey: "chargeDates")
+}
+
+func retrieveChargesDates(){
+    
+   chargeDates = NSUserDefaults.standardUserDefaults().objectForKey("chargeDates")! as! [(NSDate)]
+}
+
+func updatePeriodCharges(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(periodCharges, forKey: "periodCharges")
+}
+
+func retrievePeriodCharges(){
+    
+  periodCharges = NSUserDefaults.standardUserDefaults().objectForKey("periodCharges")! as! [(Double)]
+}
+
+func updateEmployeeDict(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(employeeDict, forKey: "employeeDict")
+}
+
+func retrieveEmployeeDict(){
+    
+    employeeDict = NSUserDefaults.standardUserDefaults().objectForKey("employeeDict")! as! Dictionary<String, Array<Int>>
+}
+
+func updatePeriodEmployeeDict(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(periodEmployeeDict, forKey: "periodEmployeeDict")
+}
+
+func retrievePeriodEmployeeDict(){
+    periodEmployeeDict = NSUserDefaults.standardUserDefaults().objectForKey("periodEmployeeDict")! as! Dictionary<String, Array<Int>>
+}
+
+func updateEmployees(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(employees, forKey: "employees")
+}
+
+func retrieveEmployees(){
+    
+    employees = NSUserDefaults.standardUserDefaults().objectForKey("employees")! as! [(String)]
+}
+
+func updateReferenceDate(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(referenceDate, forKey: "referenceDate")
+}
+
+func retrieveReferenceDate(){
+    
+    referenceDate =  NSUserDefaults.standardUserDefaults().objectForKey("referenceDate")! as! NSDate
+}
+
+func updatePeriodStartDates(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(periodStartDates, forKey: "periodStartDates")
+}
+
+func retrievePeriodStartDates(){
+    
+    periodStartDates = NSUserDefaults.standardUserDefaults().objectForKey("periodStartDates")! as! [(NSDate)]
+}
+
+func updatePeriodEndDates(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(periodEndDates, forKey: "periodEndDates")
+}
+
+func retrievePeriodEndDates(){
+    
+    periodEndDates = NSUserDefaults.standardUserDefaults().objectForKey("periodEndDates")! as! [(NSDate)]
+}
+
+
+

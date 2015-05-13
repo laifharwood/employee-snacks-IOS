@@ -153,6 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.title = employees[activeEmployee]
+        checkForNewPeriod()
         //periodTotalLabel.text = "\(periodTotals[activeEmployee])"
         
         

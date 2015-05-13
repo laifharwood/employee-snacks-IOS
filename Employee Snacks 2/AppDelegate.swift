@@ -24,13 +24,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
+        
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
         if firstLaunch  {
            //println("Not first launch.")
+            
+            
+            retrieveCharges()
+            retrieveChargesDates()
+            retrievePeriodCharges()
+            retrieveEmployeeDict()
+            retrievePeriodEmployeeDict()
+            retrieveEmployees()
+            retrieveReferenceDate()
+            retrievePeriodStartDates()
+            retrievePeriodEndDates()
+            
        }
         else {
             //println("First launch, setting NSUserDefault.")
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+            
+            
+            updateChargeDates()
+            updateCharges()
+            updatePeriodCharges()
+            updateEmployeeDict()
+            updatePeriodEmployeeDict()
+            updateEmployees()
+            updateReferenceDate()
+            updatePeriodStartDates()
+            updatePeriodEndDates()
+            
+        
             
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
             
@@ -186,11 +212,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             localNotificationFirst.repeatInterval = NSCalendarUnit.CalendarUnitMonth
             UIApplication.sharedApplication().scheduleLocalNotification(localNotificationSixteen)
             
+            /*
             println("Reference Date is \(referenceDate)")
             println("Reference End Date is \(referenceEndDate)")
             println("First Notification Date is \(firstNotificationDate)")
             println("Sixteen Notification Date is \(sixteenNotificationDate)")
-        
+        */
        }
         
         
@@ -201,13 +228,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         
-       periodCharges = []
-       
-        for (key, value) in periodEmployeeDict{
-            
-            periodEmployeeDict["key"] = []
-            
-        }
+       checkForNewPeriod()
+        
+       //implement email code here. Reporting period is periodStartDates[periodStartDates.count - 2]
         
         test = 0
         
@@ -222,6 +245,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        
+        updateChargeDates()
+        updateCharges()
+        updatePeriodCharges()
+        updateEmployeeDict()
+        updatePeriodEmployeeDict()
+        updateEmployees()
+        updateReferenceDate()
+        updatePeriodStartDates()
+        updatePeriodEndDates()
+
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -236,6 +271,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+        
+        
+        updateChargeDates()
+        updateCharges()
+        updatePeriodCharges()
+        updateEmployeeDict()
+        updatePeriodEmployeeDict()
+        updateEmployees()
+        updateReferenceDate()
+        updatePeriodStartDates()
+        updatePeriodEndDates()
+        
     }
 
     // MARK: - Core Data stack
