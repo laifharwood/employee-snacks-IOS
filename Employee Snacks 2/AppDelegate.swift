@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-var test = 1
+//var test = 1
 
 @UIApplicationMain
 
@@ -57,9 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             updatePeriodEndDates()
             
         
-            
+        /*
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
-            
+        */
         
         let nowDate = NSDate()
         
@@ -68,8 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let flags: NSCalendarUnit = NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear
         
         let referenceComponents = NSDateComponents()
-        let firstNotificationComponents = NSDateComponents()
-        let sixteenNotificationComponents = NSDateComponents()
+        //let firstNotificationComponents = NSDateComponents()
+        //let sixteenNotificationComponents = NSDateComponents()
         let referenceEndComponents = NSDateComponents()
         
         
@@ -91,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             referenceComponents.second = 0
             referenceComponents.timeZone = NSTimeZone.localTimeZone()
             
+            /*
             sixteenNotificationComponents.day = 16
             sixteenNotificationComponents.month = nowComponents.month
             sixteenNotificationComponents.year = nowComponents.year
@@ -114,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             firstNotificationComponents.minute = 2
             firstNotificationComponents.second = 0
             firstNotificationComponents.timeZone = NSTimeZone.localTimeZone()
-            
+            */
             
             
         }else{
@@ -127,6 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             referenceComponents.second = 0
             referenceComponents.timeZone = NSTimeZone.localTimeZone()
             
+            /*
             firstNotificationComponents.day = 1
             if nowMonth == 12{
             firstNotificationComponents.month = 1
@@ -155,15 +157,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sixteenNotificationComponents.minute = 2
             sixteenNotificationComponents.second = 0
             sixteenNotificationComponents.timeZone = NSTimeZone.localTimeZone()
-            
+            */
         }
         
         let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
         referenceDate = calendar!.dateFromComponents(referenceComponents)!
-        let firstNotificationDate = calendar!.dateFromComponents(firstNotificationComponents)!
-        let sixteenNotificationDate = calendar!.dateFromComponents(sixteenNotificationComponents)!
+        updateReferenceDate()
+        //let firstNotificationDate = calendar!.dateFromComponents(firstNotificationComponents)!
+        //let sixteenNotificationDate = calendar!.dateFromComponents(sixteenNotificationComponents)!
             
         periodStartDates.append(referenceDate)
+        updatePeriodStartDates()
             
             if referenceComponents.day == 1{
                
@@ -194,9 +198,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let referenceEndDate = calendar!.dateFromComponents(referenceEndComponents)!
             
             periodEndDates.append(referenceEndDate)
+            updatePeriodEndDates()
             
             
-            
+            /*
             
             var localNotificationFirst:UILocalNotification = UILocalNotification()
             localNotificationFirst.alertAction = "Okay"
@@ -211,6 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             localNotificationSixteen.fireDate = sixteenNotificationDate
             localNotificationFirst.repeatInterval = NSCalendarUnit.CalendarUnitMonth
             UIApplication.sharedApplication().scheduleLocalNotification(localNotificationSixteen)
+            */
             
             /*
             println("Reference Date is \(referenceDate)")
@@ -228,18 +234,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         
-       checkForNewPeriod()
+       //checkForNewPeriod()
         
        //implement email code here. Reporting period is periodStartDates[periodStartDates.count - 2]
         
-        test = 0
+        //test = 0
         
-        println("The value of test is \(test)")
+        //println("The value of test is \(test)")
     }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        
+        
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -247,15 +255,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         
-        updateChargeDates()
-        updateCharges()
-        updatePeriodCharges()
-        updateEmployeeDict()
-        updatePeriodEmployeeDict()
-        updateEmployees()
-        updateReferenceDate()
-        updatePeriodStartDates()
-        updatePeriodEndDates()
+        
 
     }
 
@@ -273,15 +273,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
         
         
-        updateChargeDates()
-        updateCharges()
-        updatePeriodCharges()
-        updateEmployeeDict()
-        updatePeriodEmployeeDict()
-        updateEmployees()
-        updateReferenceDate()
-        updatePeriodStartDates()
-        updatePeriodEndDates()
+        
         
     }
 

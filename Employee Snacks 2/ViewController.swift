@@ -35,11 +35,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else{
             
         charges.append(doubleCharge)
+        updateCharges()
         periodCharges.append(doubleCharge)
+        updatePeriodCharges()
             
         let dateNow = NSDate()
             
         chargeDates.append(dateNow)
+        updateChargeDates()
             
         var index:Int
         var periodIndex:Int
@@ -50,84 +53,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
             
         employeeDict["\(employees[activeEmployee])"]?.append(index)
+        updateEmployeeDict()
         periodEmployeeDict["\(employees[activeEmployee])"]!.append(periodIndex)
+        updatePeriodEmployeeDict()
             
             
         findPeriodTotal()
             
         addChargeTextField.text = ""
             
-        /*
-            
-        let flags: NSCalendarUnit = NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear
-        
-        let startComponents = NSDateComponents()
-            
-        let nowComponents = NSCalendar.currentCalendar().components(flags, fromDate: dateNow)
-            
-        let nowDay = nowComponents.day
-        let nowMonth = nowComponents.month
-        let nowYear = nowComponents.year
-        
-        
-            
-            if nowDay >= 1 && nowDay < 16{
-                
-                startComponents.day = 1
-                startComponents.month = nowComponents.month
-                startComponents.year = nowComponents.year
-                startComponents.hour = 0
-                startComponents.minute = 0
-                startComponents.second = 0
-                
-            }else{
-                
-                startComponents.day = 16
-                startComponents.month = nowComponents.month
-                startComponents.year = nowComponents.year
-                startComponents.hour = 0
-                startComponents.minute = 0
-                startComponents.second = 0
-                
-            }
-            
-        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
-        let startTime = calendar!.dateFromComponents(startComponents)
-            
-        
-            
-        var tempIndexArray = [Int]()
-        
-            
-        
-        for dates in chargeDates{
-                
-            if(dates.isGreaterThanDate(startTime!))
-            {
-                
-                var x = find(chargeDates, dates)
-                tempIndexArray.append(x!)
-                
-                
-            }
-            
-                
-        }
-
-            
-            for indexes in tempIndexArray{
-                
-                if contains(activeEmployeeIndexes, indexes){
-            
-            
-                }
-            }
-            
-        
-          */
-        
-            
-        
             
         }
         

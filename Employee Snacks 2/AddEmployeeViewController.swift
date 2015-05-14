@@ -16,9 +16,12 @@ class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
         var employeeString = addEmployeeTextField.text
         
         employees.append("\(employeeString)")
+        updateEmployees()
         
         employeeDict["\(employeeString)"] = []
+        updateEmployeeDict()
         periodEmployeeDict["\(employeeString)"] = []
+        updatePeriodEmployeeDict()
         //periodTotals.append(0)
         //println(employeeDict)
         //println(employees)

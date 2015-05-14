@@ -182,6 +182,7 @@
                                 <connections>
                                     <outlet property="periodEndDateLabel" destination="WdC-vE-tIB" id="zwK-VA-cug"/>
                                     <outlet property="periodStartDateLabel" destination="grJ-fg-Eul" id="GXQ-Bj-3Dv"/>
+                                    <segue destination="WDT-CU-38m" kind="show" id="M8g-Fm-haB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -191,9 +192,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Periods" id="x0J-KO-S2d"/>
-                    <connections>
-                        <segue destination="WDT-CU-38m" kind="show" identifier="periodDetail" id="uJE-46-EBd"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZC-ky-wwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -202,16 +200,20 @@
         <!--Period Detail Table View Controller-->
         <scene sceneID="b4S-OE-oi0">
             <objects>
-                <tableViewController id="WDT-CU-38m" customClass="PeriodDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController id="WDT-CU-38m" customClass="PeriodDetailTableViewController" customModule="Employee_Snacks_2" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i4w-pP-QtH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="POn-U9-E0X">
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xyt-z7-CCJ">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem style="plain" systemItem="action" id="yS5-Db-foG"/>
+                                <barButtonItem systemItem="action" id="hYx-7k-h90">
+                                    <connections>
+                                        <action selector="emailButton:" destination="WDT-CU-38m" id="emh-hh-tZj"/>
+                                    </connections>
+                                </barButtonItem>
                             </items>
                         </toolbar>
                         <prototypes>
@@ -220,22 +222,46 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sNi-pE-Diw" id="Huz-Wd-xwV">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLi-j3-tO0">
-                                            <rect key="frame" x="29" y="11" width="93" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLi-j3-tO0">
+                                            <rect key="frame" x="52" y="11" width="93" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-1D-pLB">
-                                            <rect key="frame" x="509" y="11" width="83" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-1D-pLB">
+                                            <rect key="frame" x="465" y="11" width="83" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2G-qa-P8h">
+                                            <rect key="frame" x="447" y="11" width="10" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zoq-1D-pLB" secondAttribute="trailing" constant="44" id="0vT-BV-gRg"/>
+                                        <constraint firstItem="zoq-1D-pLB" firstAttribute="leading" secondItem="z2G-qa-P8h" secondAttribute="trailing" constant="8" id="3fE-MY-DlS"/>
+                                        <constraint firstItem="zoq-1D-pLB" firstAttribute="leading" secondItem="z2G-qa-P8h" secondAttribute="trailing" constant="8" id="AQl-wf-rnp"/>
+                                        <constraint firstAttribute="centerY" secondItem="zoq-1D-pLB" secondAttribute="centerY" id="DyF-za-C1a"/>
+                                        <constraint firstAttribute="centerY" secondItem="JLi-j3-tO0" secondAttribute="centerY" id="JOE-Ey-XEO"/>
+                                        <constraint firstItem="JLi-j3-tO0" firstAttribute="leading" secondItem="Huz-Wd-xwV" secondAttribute="leadingMargin" constant="44" id="L4w-PP-g5O"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="z2G-qa-P8h" secondAttribute="trailing" constant="135" id="cgO-QY-5Cg"/>
+                                        <constraint firstAttribute="centerY" secondItem="z2G-qa-P8h" secondAttribute="centerY" id="icl-Jy-qjV"/>
+                                        <constraint firstItem="zoq-1D-pLB" firstAttribute="leading" secondItem="z2G-qa-P8h" secondAttribute="trailing" constant="8" id="tOk-7S-EGQ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0vT-BV-gRg"/>
+                                            <exclude reference="3fE-MY-DlS"/>
+                                            <exclude reference="tOk-7S-EGQ"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="JLi-j3-tO0" id="T3m-AG-SJ3"/>
+                                    <outlet property="nameLabel" destination="JLi-j3-tO0" id="Bqf-r8-rKo"/>
                                     <outlet property="totalLabel" destination="zoq-1D-pLB" id="qgh-dL-ZdA"/>
                                 </connections>
                             </tableViewCell>

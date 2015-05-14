@@ -150,12 +150,16 @@ func checkForNewPeriod(){
             let newStartDate = calendar!.dateFromComponents(newStartDateComponents)!
             
             periodEndDates.append(newEndDate)
+            updatePeriodEndDates()
             periodStartDates.append(newStartDate)
+            updatePeriodStartDates()
             
             periodCharges = []
+            updatePeriodCharges()
             
             for (key, value) in periodEmployeeDict{
                 periodEmployeeDict[key] = []
+                updateEmployeeDict()
             }
             
             //println("Start Dates Are \(periodStartDates)")

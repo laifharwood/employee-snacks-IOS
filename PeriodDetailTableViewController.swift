@@ -7,14 +7,70 @@
 //
 
 import UIKit
+import MessageUI
 
-class PeriodDetailTableViewController: UITableViewController {
+
+var toRecipients = [String]()
+
+
+class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     
+    @IBAction func emailButton(sender: AnyObject) {
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        var picker = MFMailComposeViewController()
+        picker.mailComposeDelegate = self
+        
+        var subject = "Employee Snacks" + " " + formatter.stringFromDate(periodStartDates[activePeriod]) + " " + "-" + " " + formatter.stringFromDate(periodEndDates[activePeriod])
+        
+        var body = ""
+        
+        
+        
+        
+        var datesIndexes = [Int]()
+        var totals = [Double]()
+        for dates in chargeDates{
+            if (dates.isGreaterThanDate(periodStartDates[activePeriod])) && (dates.isLessThanDate(periodEndDates[activePeriod])){
+                var x = find(chargeDates, dates)
+                datesIndexes.append(x!)
+            }
+        }
+        for employee in employees{
+            var employeeTotal = Double()
+            var employeeIndexes = [Int]()
+            employeeIndexes = employeeDict[employee] as [Int]!
+            for indexes in datesIndexes{
+                if contains(employeeIndexes, indexes){
+                    employeeTotal = employeeTotal + charges[indexes]
+                }
+            }
+            totals.append(employeeTotal)
+            
+            let returnNow = "\n"
+            
+            body += employee + " " + "-" + " " + "\(employeeTotal)" + returnNow
+            
+        }
+        
+        picker.setSubject(subject)
+        
+        picker.setToRecipients(toRecipients)
+        
+        picker.setMessageBody(body, isHTML: false)
+        
+        presentViewController(picker, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         checkForNewPeriod()
+        
+        //subject.delegate = self
+        //body.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,24 +90,50 @@ class PeriodDetailTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return employees.count
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("periodDetailCell", forIndexPath: indexPath) as! CustomCell
 
         // Configure the cell...
-
+        
+        cell.nameLabel.text = employees[indexPath.row]
+        
+        var datesIndexes = [Int]()
+        var totals = [Double]()
+        for dates in chargeDates{
+            if (dates.isGreaterThanDate(periodStartDates[activePeriod])) && (dates.isLessThanDate(periodEndDates[activePeriod])){
+                var x = find(chargeDates, dates)
+                datesIndexes.append(x!)
+            }
+        }
+        for employee in employees{
+            var employeeTotal = Double()
+            var employeeIndexes = [Int]()
+            employeeIndexes = employeeDict[employee] as [Int]!
+                for indexes in datesIndexes{
+                    if contains(employeeIndexes, indexes){
+                        employeeTotal = employeeTotal + charges[indexes]
+                    }
+                }
+        totals.append(employeeTotal)
+        }
+        cell.totalLabel.text = "\(totals[indexPath.row])"
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -8,6 +8,9 @@
 
 import UIKit
 
+var activePeriod = -1
+
+
 
 class PeriodListTableViewController: UITableViewController {
     
@@ -65,6 +68,12 @@ class PeriodListTableViewController: UITableViewController {
         //cell.textLabel?.text = "\(periods)"
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        activePeriod = indexPath.row
+        
+        return indexPath
     }
     
 
