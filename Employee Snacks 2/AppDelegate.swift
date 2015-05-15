@@ -35,10 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             retrievePeriodCharges()
             retrieveEmployeeDict()
             retrievePeriodEmployeeDict()
-            retrieveEmployees()
+            retrieveSortedEmployees()
             retrieveReferenceDate()
             retrievePeriodStartDates()
             retrievePeriodEndDates()
+            retrieveEmployees()
             
        }
         else {
@@ -51,10 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             updatePeriodCharges()
             updateEmployeeDict()
             updatePeriodEmployeeDict()
-            updateEmployees()
+            updateSortedEmployees()
             updateReferenceDate()
             updatePeriodStartDates()
             updatePeriodEndDates()
+            updateEmployees()
             
         
         /*

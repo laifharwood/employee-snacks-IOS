@@ -11,12 +11,23 @@ import UIKit
 class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func addEmployee(sender: AnyObject) {
+       
+        if addEmployeeTextField != nil {
+            
+       
         
-        
-        var employeeString = addEmployeeTextField.text
+        var employeeString = addEmployeeTextField.text.uppercaseString
         
         employees.append("\(employeeString)")
         updateEmployees()
+        
+            
+        sortedEmployees = sorted(employees) {str1, str2 in str1 < str2}
+        updateSortedEmployees()
+        
+        //println(sortedEmployees)
+        
+        
         
         employeeDict["\(employeeString)"] = []
         updateEmployeeDict()
@@ -27,6 +38,8 @@ class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
         //println(employees)
         
         addEmployeeTextField.text = ""
+            
+    }
         
         
     }

@@ -219,9 +219,19 @@ func retrievePeriodEmployeeDict(){
     periodEmployeeDict = NSUserDefaults.standardUserDefaults().objectForKey("periodEmployeeDict")! as! Dictionary<String, Array<Int>>
 }
 
+func updateSortedEmployees(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(sortedEmployees, forKey: "sortedEmployees")
+}
+
+func retrieveSortedEmployees(){
+    
+    sortedEmployees = NSUserDefaults.standardUserDefaults().objectForKey("sortedEmployees")! as! [(String)]
+}
+
 func updateEmployees(){
     
-    NSUserDefaults.standardUserDefaults().setObject(employees, forKey: "employees")
+    NSUserDefaults.standardUserDefaults().setObject(sortedEmployees, forKey: "employees")
 }
 
 func retrieveEmployees(){

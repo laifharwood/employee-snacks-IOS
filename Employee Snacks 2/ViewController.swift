@@ -14,6 +14,7 @@ var periodCharges = [Double]()
 var employeeDict = Dictionary<String, Array<Int>>()
 var periodEmployeeDict = Dictionary<String, Array<Int>>()
 var employees = [String]()
+var sortedEmployees = [String]()
 var activeEmployee = -1
 var referenceDate = NSDate()
 var periodStartDates = [NSDate]()
@@ -52,9 +53,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
         
             
-        employeeDict["\(employees[activeEmployee])"]?.append(index)
+        employeeDict["\(sortedEmployees[activeEmployee])"]?.append(index)
         updateEmployeeDict()
-        periodEmployeeDict["\(employees[activeEmployee])"]!.append(periodIndex)
+        periodEmployeeDict["\(sortedEmployees[activeEmployee])"]!.append(periodIndex)
         updatePeriodEmployeeDict()
             
             
@@ -86,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.title = employees[activeEmployee]
+        self.title = sortedEmployees[activeEmployee]
         checkForNewPeriod()
         //periodTotalLabel.text = "\(periodTotals[activeEmployee])"
         
@@ -106,7 +107,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         var activeEmployeeIndexes = [Int]()
         
-        activeEmployeeIndexes = periodEmployeeDict["\(employees[activeEmployee])"]!
+        activeEmployeeIndexes = periodEmployeeDict["\(sortedEmployees[activeEmployee])"]!
         
         var periodTotal = 0.0
         

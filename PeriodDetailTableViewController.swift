@@ -39,7 +39,7 @@ class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewC
                 datesIndexes.append(x!)
             }
         }
-        for employee in employees{
+        for employee in sortedEmployees{
             var employeeTotal = Double()
             var employeeIndexes = [Int]()
             employeeIndexes = employeeDict[employee] as [Int]!
@@ -119,7 +119,7 @@ class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewC
                 datesIndexes.append(x!)
             }
         }
-        for employee in employees{
+        for employee in sortedEmployees{
             var employeeTotal = Double()
             var employeeIndexes = [Int]()
             employeeIndexes = employeeDict[employee] as [Int]!
