@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		EE53A3D61AFD75990079B0EC /* PeriodDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53A3D51AFD75990079B0EC /* PeriodDetailTableViewController.swift */; };
 		EE53A3D81AFD7E840079B0EC /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE53A3D71AFD7E840079B0EC /* CustomCell.swift */; };
+		EECFF5681B067237000A08B3 /* Main1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EECFF5661B067237000A08B3 /* Main1.storyboard */; };
 		EEEF96621AFD17910050A227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96611AFD17910050A227 /* AppDelegate.swift */; };
 		EEEF96651AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96631AFD17910050A227 /* Employee_Snacks_2.xcdatamodeld */; };
 		EEEF96671AFD17910050A227 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96661AFD17910050A227 /* ViewController.swift */; };
-		EEEF966A1AFD17910050A227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEF96681AFD17910050A227 /* Main.storyboard */; };
 		EEEF966C1AFD17910050A227 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEEF966B1AFD17910050A227 /* Images.xcassets */; };
 		EEEF966F1AFD17910050A227 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEF966D1AFD17910050A227 /* LaunchScreen.xib */; };
 		EEEF967B1AFD17910050A227 /* Employee_Snacks_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF967A1AFD17910050A227 /* Employee_Snacks_2Tests.swift */; };
@@ -21,6 +21,7 @@
 		EEEF96891AFD68280050A227 /* AdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF96881AFD68280050A227 /* AdminTableViewController.swift */; };
 		EEEF968B1AFD68720050A227 /* PeriodListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */; };
 		EEEFBA7A1B0174AC00F72F17 /* SharedSwiftCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEFBA791B0174AC00F72F17 /* SharedSwiftCode.swift */; };
+		EEEFBA7C1B05996000F72F17 /* EmployeeEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEFBA7B1B05996000F72F17 /* EmployeeEditTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +37,12 @@
 /* Begin PBXFileReference section */
 		EE53A3D51AFD75990079B0EC /* PeriodDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodDetailTableViewController.swift; path = "Employee Snacks 2.xcodeproj/../PeriodDetailTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		EE53A3D71AFD7E840079B0EC /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		EECFF5671B067237000A08B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main1.storyboard; sourceTree = "<group>"; };
 		EEEF965C1AFD17910050A227 /* Employee Snacks 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employee Snacks 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEEF96601AFD17910050A227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEEF96611AFD17910050A227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEEF96641AFD17910050A227 /* Employee_Snacks_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Employee_Snacks_2.xcdatamodel; sourceTree = "<group>"; };
 		EEEF96661AFD17910050A227 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EEEF96691AFD17910050A227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EEEF966B1AFD17910050A227 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EEEF966E1AFD17910050A227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EEEF96741AFD17910050A227 /* Employee Snacks 2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Employee Snacks 2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +53,7 @@
 		EEEF96881AFD68280050A227 /* AdminTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminTableViewController.swift; sourceTree = "<group>"; };
 		EEEF968A1AFD68720050A227 /* PeriodListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodListTableViewController.swift; sourceTree = "<group>"; };
 		EEEFBA791B0174AC00F72F17 /* SharedSwiftCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedSwiftCode.swift; sourceTree = "<group>"; };
+		EEEFBA7B1B05996000F72F17 /* EmployeeEditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeEditTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +95,11 @@
 		EEEF965E1AFD17910050A227 /* Employee Snacks 2 */ = {
 			isa = PBXGroup;
 			children = (
+				EECFF5661B067237000A08B3 /* Main1.storyboard */,
 				EEEF96611AFD17910050A227 /* AppDelegate.swift */,
 				EEEF96661AFD17910050A227 /* ViewController.swift */,
 				EEEFBA791B0174AC00F72F17 /* SharedSwiftCode.swift */,
-				EEEF96681AFD17910050A227 /* Main.storyboard */,
+				EEEFBA7B1B05996000F72F17 /* EmployeeEditTableViewController.swift */,
 				EE53A3D71AFD7E840079B0EC /* CustomCell.swift */,
 				EEEF96881AFD68280050A227 /* AdminTableViewController.swift */,
 				EE53A3D51AFD75990079B0EC /* PeriodDetailTableViewController.swift */,
@@ -187,7 +190,7 @@
 						CreatedOnToolsVersion = 6.3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -221,9 +224,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEEF966A1AFD17910050A227 /* Main.storyboard in Resources */,
 				EEEF966F1AFD17910050A227 /* LaunchScreen.xib in Resources */,
 				EEEF966C1AFD17910050A227 /* Images.xcassets in Resources */,
+				EECFF5681B067237000A08B3 /* Main1.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEEFBA7C1B05996000F72F17 /* EmployeeEditTableViewController.swift in Sources */,
 				EEEF96671AFD17910050A227 /* ViewController.swift in Sources */,
 				EEEFBA7A1B0174AC00F72F17 /* SharedSwiftCode.swift in Sources */,
 				EEEF96891AFD68280050A227 /* AdminTableViewController.swift in Sources */,
@@ -273,12 +277,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EEEF96681AFD17910050A227 /* Main.storyboard */ = {
+		EECFF5661B067237000A08B3 /* Main1.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EEEF96691AFD17910050A227 /* Base */,
+				EECFF5671B067237000A08B3 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Main1.storyboard;
 			sourceTree = "<group>";
 		};
 		EEEF966D1AFD17910050A227 /* LaunchScreen.xib */ = {
@@ -382,6 +386,7 @@
 				INFOPLIST_FILE = "Employee Snacks 2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -392,6 +397,7 @@
 				INFOPLIST_FILE = "Employee Snacks 2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

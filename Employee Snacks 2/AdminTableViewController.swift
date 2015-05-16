@@ -10,9 +10,12 @@ import UIKit
 
 class AdminTableViewController: UITableViewController {
 
+    @IBOutlet weak var periodCell: UITableViewCell!
+    @IBOutlet weak var emailCell: UITableViewCell!
+    @IBOutlet weak var employeeEditCell: UITableViewCell!
+    @IBOutlet weak var changePasscodeCell: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         checkForNewPeriod()
 
         // Uncomment the following line to preserve selection between presentations
@@ -20,6 +23,13 @@ class AdminTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        periodCell.textLabel!.text = "Period Reports"
+        emailCell.textLabel!.text = "Add Reporting Emails"
+        employeeEditCell.textLabel!.text = "Add/Edit Employees"
+        changePasscodeCell.textLabel!.text = "Change Passcode"
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +42,7 @@ class AdminTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 3
+        return 4
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

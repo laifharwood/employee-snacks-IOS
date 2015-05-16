@@ -1,23 +1,22 @@
 //
-//  EmployeeListTableViewController.swift
+//  EmployeeEditTableViewController.swift
 //  Employee Snacks 2
 //
-//  Created by Laif Harwood on 5/8/15.
+//  Created by Laif Harwood on 5/14/15.
 //  Copyright (c) 2015 LaifHarwood. All rights reserved.
 //
 
 import UIKit
 
-var passcode = "1234"
-
-class EmployeeListTableViewController: UITableViewController{
-
+class EmployeeEditTableViewController: UITableViewController {
     
     
-    @IBAction func addEmployee(sender: AnyObject) {
-        
-        
-    }
+    
+    
+    
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +55,7 @@ class EmployeeListTableViewController: UITableViewController{
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("employeeEditCell", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         
@@ -65,15 +64,34 @@ class EmployeeListTableViewController: UITableViewController{
         return cell
     }
     
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        activeEmployee = indexPath.row
-        
-        return indexPath
+
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return NO if you do not want the specified item to be editable.
+        return true
     }
     
 
     
-    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            
+            let removedString = sortedEmployees.removeAtIndex(indexPath.row)
+            updateSortedEmployees()
+            
+            let x = find(employees, removedString)
+            
+            employees.removeAtIndex(x!)
+            updateEmployees()
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
     
 
     /*

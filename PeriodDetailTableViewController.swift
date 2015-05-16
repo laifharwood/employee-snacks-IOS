@@ -96,7 +96,7 @@ class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewC
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return employees.count
+        return sortedEmployees.count
     }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
@@ -109,7 +109,7 @@ class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewC
 
         // Configure the cell...
         
-        cell.nameLabel.text = employees[indexPath.row]
+        cell.nameLabel.text = sortedEmployees[indexPath.row]
         
         var datesIndexes = [Int]()
         var totals = [Double]()

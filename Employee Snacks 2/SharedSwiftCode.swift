@@ -7,6 +7,22 @@
 //
 
 import Foundation
+import UIKit
+
+/*
+extension UIColor {
+    
+    class func swiftColor() -> UIColor{
+        
+    return UIColor(red: 0, green: 122/255, blue: 255, alpha: 1)
+
+
+}
+}
+    
+ */
+    
+
 
 extension NSDate
 {
