@@ -73,7 +73,7 @@ class PasscodeCreateViewController: UIViewController {
         
         if numberOfButtonsPressed == 1{
             
-            numbersEnteredLabel.text = "X _ _ _"
+            numbersEnteredLabel.text = "X _ _ _ _"
             
             if attempt == 1{
                 
@@ -86,7 +86,7 @@ class PasscodeCreateViewController: UIViewController {
             
         }else if numberOfButtonsPressed == 2{
             
-            numbersEnteredLabel.text = "X X _ _"
+            numbersEnteredLabel.text = "X X _ _ _"
             
             if attempt == 1{
                 
@@ -97,7 +97,7 @@ class PasscodeCreateViewController: UIViewController {
             }
         }else if numberOfButtonsPressed == 3{
             
-            numbersEnteredLabel.text = "X X X _"
+            numbersEnteredLabel.text = "X X X _ _"
             if attempt == 1{
                 
                 firstAttemptCode += "\(num)"
@@ -107,7 +107,17 @@ class PasscodeCreateViewController: UIViewController {
             }
         }else if numberOfButtonsPressed == 4{
             
-            numbersEnteredLabel.text = "X X X X"
+            numbersEnteredLabel.text = "X X X X _"
+            if attempt == 1{
+                
+                firstAttemptCode += "\(num)"
+            }else{
+                
+                secondAttemptCode += "\(num)"
+            }
+        }else if numberOfButtonsPressed == 5{
+            
+            numbersEnteredLabel.text = "X X X X X"
             if attempt == 1{
                 
                 firstAttemptCode += "\(num)"
@@ -141,7 +151,7 @@ class PasscodeCreateViewController: UIViewController {
                     
                 }else{
                     
-                   numbersEnteredLabel.text = "_ _ _ _"
+                   numbersEnteredLabel.text = "_ _ _ _ _"
                    messageLabel.text = "Entires Did Not Match, Please Try Again"
                     messageLabel.textColor = UIColor.redColor()
                     

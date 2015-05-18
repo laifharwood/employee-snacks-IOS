@@ -71,7 +71,7 @@ class PasscodePromptViewController: UIViewController {
         
         if numberOfButtonsPressed == 1{
             
-            numbersEnteredLabel.text = "X _ _ _"
+            numbersEnteredLabel.text = "X _ _ _ _"
             
             
                 
@@ -82,7 +82,7 @@ class PasscodePromptViewController: UIViewController {
             
         }else if numberOfButtonsPressed == 2{
             
-            numbersEnteredLabel.text = "X X _ _"
+            numbersEnteredLabel.text = "X X _ _ _"
             
             
                 
@@ -92,14 +92,21 @@ class PasscodePromptViewController: UIViewController {
             
         }else if numberOfButtonsPressed == 3{
             
-            numbersEnteredLabel.text = "X X X _"
+            numbersEnteredLabel.text = "X X X _ _"
             
                 
                 firstAttemptCode += "\(num)"
             
         }else if numberOfButtonsPressed == 4{
             
-                numbersEnteredLabel.text = "X X X X"
+            numbersEnteredLabel.text = "X X X X _"
+            
+            
+            firstAttemptCode += "\(num)"
+            
+        }else if numberOfButtonsPressed == 5{
+            
+                numbersEnteredLabel.text = "X X X X X"
                 firstAttemptCode += "\(num)"
             
             if firstAttemptCode == passcode{
@@ -111,7 +118,7 @@ class PasscodePromptViewController: UIViewController {
                 
             
                 
-                numbersEnteredLabel.text = "_ _ _ _"
+                numbersEnteredLabel.text = "_ _ _ _ _"
                 
                 messageLabel.textColor = UIColor.redColor()
                 
