@@ -14,6 +14,7 @@ class AdminTableViewController: UITableViewController {
     @IBOutlet weak var emailCell: UITableViewCell!
     @IBOutlet weak var employeeEditCell: UITableViewCell!
     @IBOutlet weak var changePasscodeCell: UITableViewCell!
+    @IBOutlet weak var deleteData: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
         checkForNewPeriod()
@@ -26,11 +27,15 @@ class AdminTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        periodCell.textLabel!.text = "Period Reports"
-        emailCell.textLabel!.text = "Add Reporting Emails"
-        employeeEditCell.textLabel!.text = "Add/Edit Employees"
+        periodCell.textLabel!.text = "Pay Period Reports"
+        emailCell.textLabel!.text = "Add/Delete Reporting Emails"
+        employeeEditCell.textLabel!.text = "Add/Delete Employees"
         changePasscodeCell.textLabel!.text = "Change Passcode"
+        
+        deleteData.textLabel!.text = "Delete Past Reporting Data"
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,7 +47,7 @@ class AdminTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 4
+        return 5
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,6 +55,45 @@ class AdminTableViewController: UITableViewController {
         // Return the number of rows in the section.
         return 1
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 4 && indexPath.row == 0{
+            
+            let actionSheetController: UIAlertController = UIAlertController(title: "Please Confirm", message: "Are you sure you want to delete past reporting data?", preferredStyle: .Alert)
+            
+            //Create and add the Cancel action
+            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                //Do some stuff
+            }
+            actionSheetController.addAction(cancelAction)
+            //Create and an option action
+            let nextAction: UIAlertAction = UIAlertAction(title: "Confirm", style: .Default) { action -> Void in
+                //Do some other stuff
+                
+                charges = periodCharges
+                updateCharges()
+                chargeDates = periodChargeDates
+                updateChargeDates()
+                
+                employeeDict = periodEmployeeDict
+                updateEmployeeDict()
+                
+                
+                //println("Confirmed")
+            }
+            actionSheetController.addAction(nextAction)
+            
+            //Present the AlertController
+            self.presentViewController(actionSheetController, animated: true, completion: nil)
+            
+            
+            }
+            
+        
+        }
+            
+    
+    
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

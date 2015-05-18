@@ -59,7 +59,7 @@ class EmployeeEditTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.textLabel?.text = sortedEmployees[indexPath.row]
+        cell.textLabel?.text = sortedEmployees[indexPath.row].capitalizedString
 
         return cell
     }

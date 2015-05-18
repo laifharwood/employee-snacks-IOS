@@ -173,6 +173,9 @@ func checkForNewPeriod(){
             periodCharges = []
             updatePeriodCharges()
             
+            periodChargeDates = []
+            updatePeriodCharges()
+            
             for (key, value) in periodEmployeeDict{
                 periodEmployeeDict[key] = []
                 updateEmployeeDict()
@@ -247,7 +250,7 @@ func retrieveSortedEmployees(){
 
 func updateEmployees(){
     
-    NSUserDefaults.standardUserDefaults().setObject(sortedEmployees, forKey: "employees")
+    NSUserDefaults.standardUserDefaults().setObject(employees, forKey: "employees")
 }
 
 func retrieveEmployees(){
@@ -283,6 +286,16 @@ func updatePeriodEndDates(){
 func retrievePeriodEndDates(){
     
     periodEndDates = NSUserDefaults.standardUserDefaults().objectForKey("periodEndDates")! as! [(NSDate)]
+}
+
+func updatePeriodChargeDates(){
+    
+    NSUserDefaults.standardUserDefaults().setObject(periodChargeDates, forKey: "periodChargeDates")
+}
+
+func retrievePeriodChargeDates(){
+    
+    periodChargeDates = NSUserDefaults.standardUserDefaults().objectForKey("periodChargeDates") as! [(NSDate)]
 }
 
 

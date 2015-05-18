@@ -19,6 +19,7 @@ var activeEmployee = -1
 var referenceDate = NSDate()
 var periodStartDates = [NSDate]()
 var periodEndDates = [NSDate]()
+var periodChargeDates = [NSDate]()
 
 
 
@@ -174,15 +175,15 @@ class ViewController: UIViewController {
         
         if sender.tag == 35 {
             
-           addCharge(".35")
+           addCharge("0.35")
             
         }else if sender.tag == 50{
             
-            addCharge(".50")
+            addCharge("0.50")
             
         }else if sender.tag == 60{
             
-            addCharge(".60")
+            addCharge("0.60")
             
         }else if sender.tag == 100{
             
@@ -221,8 +222,10 @@ class ViewController: UIViewController {
         
         doubleCharge = (numberString as NSString).doubleValue
         
+        //println(doubleCharge)
+        
         if doubleCharge == 0.0 {
-            println("error")
+            //println("error")
         } else{
             
         charges.append(doubleCharge)
@@ -231,6 +234,9 @@ class ViewController: UIViewController {
         updatePeriodCharges()
             
         let dateNow = NSDate()
+            
+        periodChargeDates.append(dateNow)
+        updatePeriodCharges()
             
         chargeDates.append(dateNow)
         updateChargeDates()
@@ -257,9 +263,26 @@ class ViewController: UIViewController {
         }
         
     }
+    
     @IBOutlet weak var periodTotalLabel: UILabel!
+    
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+       // println("ViewDidAppear")
+        
+    let timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "timedOut", userInfo: nil, repeats: false)
+        
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       // println("ViewDidLoad")
         
         //self.addChargeTextField.delegate = self
         
@@ -278,10 +301,10 @@ class ViewController: UIViewController {
         
         for button in padButtonArray{
             
-            button.backgroundColor = padButtonColor
+            //button.backgroundColor = padButtonColor
             //button.layer.cornerRadius = oneButton.frame.width/2
-            //button.layer.borderWidth = 1
-            //button.layer.borderColor = padButtonColor.CGColor
+            button.layer.borderWidth = 1
+            button.layer.borderColor = padButtonColor.CGColor
             
         }
         
@@ -295,7 +318,6 @@ class ViewController: UIViewController {
             
         }
         
-       
         
         
         
@@ -313,30 +335,18 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.title = sortedEmployees[activeEmployee]
+        self.title = sortedEmployees[activeEmployee].capitalizedString
         
-        /*
-        topRect.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height * 0.27)
-        
-        leftRect.frame = CGRectMake(0, topRect.frame.height, UIScreen.mainScreen().bounds.size.width/2, UIScreen.mainScreen().bounds.size.height * 0.73)
-        
-        rightRect.frame = CGRectMake(leftRect.frame.width, topRect.frame.height, UIScreen.mainScreen().bounds.size.width/2, UIScreen.mainScreen().bounds.size.height * 0.73)
-        */
+       
         
         checkForNewPeriod()
-        //periodTotalLabel.text = "\(periodTotals[activeEmployee])"
         
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
-    }
+   
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        return true
-    }
+   
     
     func findPeriodTotal(){
         
@@ -348,12 +358,20 @@ class ViewController: UIViewController {
         
         for indexes in activeEmployeeIndexes{
             
-            periodTotal = periodTotal + periodCharges[indexes]
+            periodTotal = round(100 * (periodTotal + periodCharges[indexes]))/100
         }
         
         periodTotalLabel.text = "\(periodTotal)"
         
         
+    }
+    
+    
+    
+    func timedOut(){
+        
+        //println(timedOut)
+        self.performSegueWithIdentifier("timedOut", sender: self)
     }
     
     

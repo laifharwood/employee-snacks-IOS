@@ -40,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             retrievePeriodStartDates()
             retrievePeriodEndDates()
             retrieveEmployees()
+            retrievePeriodChargeDates()
+            passcode = NSUserDefaults.standardUserDefaults().objectForKey("passcode") as! String
+            
+            toRecipients = NSUserDefaults.standardUserDefaults().objectForKey("toRecipients") as! [String]
+            
+            
             
        }
         else {
@@ -57,6 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             updatePeriodStartDates()
             updatePeriodEndDates()
             updateEmployees()
+            updatePeriodChargeDates()
+            passcode == ""
+            NSUserDefaults.standardUserDefaults().setObject(passcode, forKey: "passcode")
+            NSUserDefaults.standardUserDefaults().setObject(toRecipients, forKey: "toRecipients")
             
         
         /*

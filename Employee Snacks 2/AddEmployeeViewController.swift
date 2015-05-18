@@ -12,11 +12,17 @@ class AddEmployeeViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func addEmployee(sender: AnyObject) {
        
-        if addEmployeeTextField != nil {
+        
+        if addEmployeeTextField.text.isEmpty{
+            
+        }
+        
+        
+        else {
             
        
         
-        var employeeString = addEmployeeTextField.text.uppercaseString
+        var employeeString = addEmployeeTextField.text.lowercaseString
         
         employees.append("\(employeeString)")
         updateEmployees()

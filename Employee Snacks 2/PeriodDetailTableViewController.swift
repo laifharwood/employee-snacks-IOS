@@ -45,14 +45,14 @@ class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewC
             employeeIndexes = employeeDict[employee] as [Int]!
             for indexes in datesIndexes{
                 if contains(employeeIndexes, indexes){
-                    employeeTotal = employeeTotal + charges[indexes]
+                    employeeTotal = round(100 * (employeeTotal + charges[indexes])) / 100
                 }
             }
             totals.append(employeeTotal)
             
             let returnNow = "\n"
             
-            body += employee + " " + "-" + " " + "\(employeeTotal)" + returnNow
+            body += employee.capitalizedString + " " + "-" + " " + "\(employeeTotal)" + returnNow
             
         }
         
@@ -109,7 +109,7 @@ class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewC
 
         // Configure the cell...
         
-        cell.nameLabel.text = sortedEmployees[indexPath.row]
+        cell.nameLabel.text = sortedEmployees[indexPath.row].capitalizedString
         
         var datesIndexes = [Int]()
         var totals = [Double]()
@@ -125,7 +125,7 @@ class PeriodDetailTableViewController: UITableViewController, MFMailComposeViewC
             employeeIndexes = employeeDict[employee] as [Int]!
                 for indexes in datesIndexes{
                     if contains(employeeIndexes, indexes){
-                        employeeTotal = employeeTotal + charges[indexes]
+                        employeeTotal = round(100 * (employeeTotal + charges[indexes])) / 100
                     }
                 }
         totals.append(employeeTotal)

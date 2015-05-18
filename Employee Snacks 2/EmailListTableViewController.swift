@@ -1,27 +1,17 @@
 //
-//  EmployeeListTableViewController.swift
+//  EmailListTableViewController.swift
 //  Employee Snacks 2
 //
-//  Created by Laif Harwood on 5/8/15.
+//  Created by Laif Harwood on 5/16/15.
 //  Copyright (c) 2015 LaifHarwood. All rights reserved.
 //
 
 import UIKit
 
-var passcode = ""
+class EmailListTableViewController: UITableViewController {
 
-class EmployeeListTableViewController: UITableViewController{
-
-    
-    
-    @IBAction func addEmployee(sender: AnyObject) {
-        
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,8 +22,6 @@ class EmployeeListTableViewController: UITableViewController{
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        checkForNewPeriod()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +40,7 @@ class EmployeeListTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return sortedEmployees.count
+        return toRecipients.count
     }
 
     
@@ -61,28 +49,35 @@ class EmployeeListTableViewController: UITableViewController{
 
         // Configure the cell...
         
-        let cellBgColor: UIColor = UIColor(red: 54/255, green: 79/255, blue: 108/255, alpha: 1)
-        
-        cell.backgroundColor = cellBgColor
-        
-        cell.textLabel?.textColor = UIColor.whiteColor()
-        
-        cell.textLabel?.font = UIFont (name: "HelveticaNeue-Light", size: 50)
-        
-        cell.textLabel?.text = sortedEmployees[indexPath.row].capitalizedString
+        cell.textLabel!.text = toRecipients[indexPath.row]
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        activeEmployee = indexPath.row
-        
-        return indexPath
+
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return NO if you do not want the specified item to be editable.
+        return true
     }
     
 
     
-    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            
+            toRecipients.removeAtIndex(indexPath.row)
+            NSUserDefaults.standardUserDefaults().setObject(toRecipients, forKey: "toRecipients")
+            
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
     
 
     /*
