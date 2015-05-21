@@ -27,6 +27,8 @@ var periodChargeDates = [NSDate]()
 class ViewController: UIViewController {
     
     
+    var timerCounter = 0
+    
     
     
     @IBOutlet weak var topRect: UIView!
@@ -70,6 +72,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var clearButtonOutlet: UIButton!
     @IBAction func clearButtonAction(sender: AnyObject) {
         
+        buttonTappedTimer()
+        
         padTotalLabelString = ""
         padTotalLabel.text = "0.00"
         
@@ -83,6 +87,8 @@ class ViewController: UIViewController {
     
     @IBAction func addTappedButton(sender: AnyObject) {
         
+        buttonTappedTimer()
+        
         addCharge(padTotalLabelString)
         
         padTotalLabelString = ""
@@ -93,6 +99,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func keyPadButtons(sender: AnyObject) {
+        
+        buttonTappedTimer()
         
         if sender.tag == 1 {
             
@@ -171,6 +179,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func quickChargeTapped(sender: AnyObject) {
+        
+        buttonTappedTimer()
         
         
         if sender.tag == 35 {
@@ -272,7 +282,7 @@ class ViewController: UIViewController {
         
        // println("ViewDidAppear")
         
-    let timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "timedOut", userInfo: nil, repeats: false)
+    let timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timedOut", userInfo: nil, repeats: true)
         
         
     }
@@ -371,7 +381,16 @@ class ViewController: UIViewController {
     func timedOut(){
         
         //println(timedOut)
+        ++timerCounter
+        if timerCounter > 12{
         self.performSegueWithIdentifier("timedOut", sender: self)
+        }
+    }
+    
+    func buttonTappedTimer(){
+        
+        timerCounter = 0
+        
     }
     
     

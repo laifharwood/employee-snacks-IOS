@@ -11,6 +11,8 @@ import UIKit
 var passcode = ""
 
 class EmployeeListTableViewController: UITableViewController{
+    
+    
 
     
     
@@ -54,6 +56,14 @@ class EmployeeListTableViewController: UITableViewController{
         // Return the number of rows in the section.
         return sortedEmployees.count
     }
+    
+//    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+//        return sections
+//    }
+    
+//    override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+//        return sections[index]
+//    }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
